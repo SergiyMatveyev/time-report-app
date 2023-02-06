@@ -74,7 +74,10 @@ export const TimeReportForm = ({
 
   const changeChecklistItemFieldHandler = (
     e: ChangeEvent<HTMLInputElement>
-  ): void => setChecklistField(e.target.value);
+  ): void => {
+    setChecklistField('');
+    setChecklistField(e.target.value);
+  }
 
   const changeSpendTimeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setSpendTime(e.target.value);
@@ -288,7 +291,7 @@ export const TimeReportForm = ({
       </InputGroup>
       <FormFileUploader file={files} onChange={changeFilesHandler} />
       <Container className="w-100 mb-3">
-        .<Row>{showFilePreview()}</Row>
+        <Row>{showFilePreview()}</Row>
       </Container>
       <Button type="submit">Save changes</Button>
     </Form>
